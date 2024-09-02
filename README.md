@@ -55,24 +55,54 @@ As we do not have any information about the requirements, we decided to use a si
 
 Clone the repository
 ```shell
-git clone
+git clone https://github.com/ilya-ibulaev-at-sloboda/ps_hvv_tender_backend.git
 ```
 
+Create a virtual environment
+```shell
+python3 -m venv .venv
+```
+
+Install the requirements
+```shell
+pip install -r requirements.txt
+```
+
+Apply the migrations
 ```shell
 python manage.py migrate
 ```
 
-
+Create a superuser for the Django admin (optional) if you want to control imported data
 ```shell
 python manage.py createsuperuser --username root --email root@localhost
 ```
 
-
+Import the CSV data from the built-in dataset from the repository
 ```shell
 python manage.py pollution_csv_import air_pollution/data/air-pollution.csv
 ```
 
-## 
+Run the server
+```shell
+python manage.py runserver
+```
+
+### API documentation
+
+The DRF browsable API is available at the same URL as the endpoints. 
+So if we have our api on URL http://localhost:8000/air-pollution/entity/Germany/ 
+we can see the browsable API on http://localhost:8000/air-pollution/entity/Germany/
+
+
+### Local testing
+
+Run the tests
+```shell
+python manage.py test
+```
+
+### Found issues 
 
 https://www.sqlite.org/draft/percentile.html
 
