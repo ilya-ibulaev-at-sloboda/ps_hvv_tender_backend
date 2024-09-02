@@ -20,6 +20,10 @@ class Pollution(models.Model):
     objects = PollutionManager()
 
     class Meta:
+        """
+        We do not index the statistics fields now, but we may need to in the future for performance reasons.
+        """
+
         indexes = [
             models.Index(fields=["entity"]),
             models.Index(fields=["year"]),

@@ -8,13 +8,18 @@ from air_pollution.serializers import PollutionStatsSerializer
 
 
 class PollutionStatsView(APIView):
+    """
+    API endpoint to fetch statistics for the specified entity (country)
+    """
+
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]
 
-    def get(self, request, entity):
+    def get(self, request, entity) -> Response:
         # Fetching data for the specified entity using the custom manager's method
         pollution_stats = Pollution.objects.filter(entity=entity).with_statistics()
 
+        # If the entity is not found, return a 404 response
         if not pollution_stats:
             return Response({"error": "Entity not found"}, status=404)
 
@@ -24,7 +29,6 @@ class PollutionStatsView(APIView):
             response_data.append(
                 {
                     "entity": stat["entity"],
-                    # "year": stat["year"],
                     "average": {
                         "nitrogen_oxide": stat["nitrogen_oxide_avg"],
                         "sulphur_dioxide": stat["sulphur_dioxide_avg"],

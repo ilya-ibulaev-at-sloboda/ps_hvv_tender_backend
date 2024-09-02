@@ -1,8 +1,9 @@
 from django.urls import reverse
+from django.contrib.auth.models import User
 from rest_framework.test import APITestCase, APIClient
 from rest_framework import status
-from django.contrib.auth.models import User
-from .models import Pollution
+
+from air_pollution.models import Pollution
 
 
 class PollutionStatsAPITestCase(APITestCase):

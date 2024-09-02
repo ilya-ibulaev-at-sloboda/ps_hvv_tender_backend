@@ -5,6 +5,9 @@ from tailslide import Median
 
 class PollutionQuerySet(models.QuerySet):
     def with_statistics(self):
+        """
+        Custom method to fetch pollution statistics grouped by entity
+        """
         return self.values("entity").annotate(
             nitrogen_oxide_avg=Avg("nitrogen_oxide"),
             # nitrogen_oxide_median=Median("nitrogen_oxide"),
