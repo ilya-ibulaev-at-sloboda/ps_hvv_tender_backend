@@ -84,3 +84,4 @@ https://www.sqlite.org/draft/percentile.html
 - Cache can be used to improve performance (as the data is static)
 - Authentication can be improved to use JWT tokens to allow stateless authentication
 - FactoryBoy & Faker can be used to create test data in a more readable and reusable way
+- In the Dockerfile we run the server with `python manage.py runserver` which is not recommended for production. We can use Gunicorn or Uvicorn instead.
