@@ -102,9 +102,25 @@ Run the tests
 python manage.py test
 ```
 
-### Found issues 
+### Found issues on local
 
+The tailslide package has some limitations for the percentile calculation using SQLite on MacOS.
 https://www.sqlite.org/draft/percentile.html
+So the Median calculation is not implemented in the current version of the solution. (The code is commented out)
+It will work ok with PostgreSQL or MySQL, or with the SQLite on Linux.
+But to keep solution simple and easy to deploy we decided to remove the Median calculation and 
+use only Average and Standard Deviation using SQLite.
+
+### Remote deployment
+
+According to the task:
+> Please provide a codebase that is versioned in GitHub/GitLab. 
+
+> For demonstration purposes, a dev branch is sufficient. Provide a CI/CD pipeline that carries out
+> automated tests after accepting a merge request on the dev branch. Only if all tests pass is the
+> application built and stored in a container repo. A few tests are sufficient as an example.
+
+
 
 ## Possible improvements
 
@@ -115,3 +131,4 @@ https://www.sqlite.org/draft/percentile.html
 - Authentication can be improved to use JWT tokens to allow stateless authentication
 - FactoryBoy & Faker can be used to create test data in a more readable and reusable way
 - In the Dockerfile we run the server with `python manage.py runserver` which is not recommended for production. We can use Gunicorn or Uvicorn instead.
+- For GitHub Actions we can add more tests and linters to improve the quality of the code
