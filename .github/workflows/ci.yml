@@ -1,7 +1,7 @@
 name: Test on GitHub Actions and deploy to Docker Hub
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
