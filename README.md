@@ -129,7 +129,10 @@ So the tests are run on every PR and on every push to non-accepted PRs.
 
 ## Possible improvements
 
+- SECRET_KEY should be stored in the environment variable
+- DEBUG should be set to False and ALLOWED_HOSTS should be set to the domain name in production
 - Database can be changed to PostgreSQL/AWS-Aurora for production
+- Logging options have to be set to define log level depending of the DEBUG mode
 - API can be versioned (URL prefix) to allow backward compatibility
 - Swagger can be used to document the API as an industry standard
 - Cache can be used to improve performance (as the data is static)
