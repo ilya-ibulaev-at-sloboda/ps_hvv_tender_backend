@@ -6,6 +6,7 @@ from air_pollution.models import Pollution
 class PollutionAdmin(admin.ModelAdmin):
     list_display = [
         "entity",
+        "iso",
         "year",
         "nitrogen_oxide",
         "sulphur_dioxide",

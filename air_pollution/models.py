@@ -1,20 +1,9 @@
 from django.db import models
 
+from air_pollution.managers import PollutionManager
+
 
 class Pollution(models.Model):
-    """
-    Entity,
-    Code,
-    Year,
-    Nitrogen oxide (NOx),
-    Sulphur dioxide (SO₂) emissions,
-    Carbon monoxide (CO) emissions,
-    Organic carbon (OC) emissions,
-    Non-methane volatile organic compounds (NMVOC) emissions,
-    Black carbon (BC) emissions,
-    Ammonia (NH₃) emissions,
-    """
-
     entity = models.CharField(max_length=255)
     iso = models.CharField(max_length=255, null=True, blank=True)
     year = models.IntegerField()
@@ -27,6 +16,8 @@ class Pollution(models.Model):
     )
     black_carbon = models.FloatField(help_text="Black carbon (BC) emissions")
     ammonia = models.FloatField(help_text="Ammonia (NH₃) emissions")
+
+    objects = PollutionManager()
 
     class Meta:
         indexes = [
