@@ -9,10 +9,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    services:
-      db:
-        image: keinos/sqlite3:latest
-        options: --health-cmd "sqlite3 db.sqlite3 .databases" --health-interval 10s --health-timeout 5s --health-retries 5
+#    services:
+#      db:
+#        image: keinos/sqlite3
+#        options: --health-cmd "sqlite3 db.sqlite3 .databases" --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
       - name: Checkout code
