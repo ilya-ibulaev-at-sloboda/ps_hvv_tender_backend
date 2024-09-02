@@ -120,6 +120,11 @@ According to the task:
 > automated tests after accepting a merge request on the dev branch. Only if all tests pass is the
 > application built and stored in a container repo. A few tests are sufficient as an example.
 
+We have a GitHub Actions workflow that 
+- runs tests on every PR and on every push to the main branch.
+- builds a Docker image on every push/merge to the main branch.
+
+So the tests are run on every PR and on every push to non-accepted PRs.
 
 
 ## Possible improvements
